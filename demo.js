@@ -5,14 +5,18 @@ document.getElementById("githubreq").onclick = function(){searchGitHub();};
 
 
 function searchGitHub()
-	{
+{
 	var httprequest = new XMLHttpRequest();
 	if(!httprequest)
+
 		{
 			throw 'Unable to create httprequest';
 		}
 
-		var url = 'https://api.github.com/gists';
+		var temp = document.getElementsByName("pages")[0];
+		var pagesRequested = temp.toString();
+
+		var url = 'https://api.github.com/gists';// + '?page=' + temp + '&per_page=30';
 
 		httprequest.onreadystatechange = alertContents;
 		httprequest.open('GET',url,true);
@@ -21,52 +25,32 @@ function searchGitHub()
 	}
 
 
-
 function alertContents()
 {
 	
 	if (this.readyState === 4 && this.status===200)
 	{
-		
-				//alert(this.responseText);
-				var serverresponsetext = JSON.parse(this.responseText);
-
-				for(var key in serverresponsetext)
-				{
-					var val = serverresponsetext[key];
-					console.log(val);
-				}
-	
+		var changeData = JSON.stringify(this.responseText);
+		localStorage.setItem("rawGistData",changeData);
 	}
-	
-
-
-
-		/*
-		var weather = JSON.parse(this.responseText);
-		var maxt = weather.list[0].temp.max;
-		var mint = weather.list[0].temp.min;
-		*/
-		
 
 }
 
 
-/*
-
-function urlstringify(obj)
+function listResults()
 {
-	
-	var str = []
-	for(var prop in obj){
-		var s = encodeURIComponent(prop) + '=' + encodeURIComponent(obj[prop]);
-		str.push(s);
-		} 
-	return str.join('&');
+	var results = localStorage.getItem("rawGistData");
+	var presults = JSON.parse(results);
+
+	for(var i = 0;i < presults.length; i++)
+	{
+		var temp = (presults[i].files.language);
+		console.write(temp);
+	}
 
 }
 
-*/
+listResults();
 
 
 
@@ -74,28 +58,3 @@ function urlstringify(obj)
 
 
 
-
-
-/*
-
-
-window.onload = function()
-{
-//code to retrieve local or session storage
-var settingStr = localStorage.getItem('usersettings');
-if (settingStr === null)
-	{
-	settings = {'sports':[]};
-	localStorage.setItem('usersettings', JSON.stringify(settings));
-	}
-
-else 
-	{
-	settings = JSON.parse(localStorage.getItem('userSettings'));
-	}
-	getTomorrowsWeather();
-
-
-
-};
-*/
