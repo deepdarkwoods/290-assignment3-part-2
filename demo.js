@@ -3,7 +3,6 @@
 document.getElementById("githubreq").onclick = function(){searchGitHub();};
 
 
-
 function searchGitHub()
 {
 	var httprequest = new XMLHttpRequest();
@@ -30,8 +29,8 @@ function alertContents()
 	
 	if (this.readyState === 4 && this.status===200)
 	{
-		var changeData = JSON.stringify(this.responseText);
-		localStorage.setItem("rawGistData",changeData);
+		
+		localStorage.setItem("rawGistData",(this.responseText));
 	}
 
 }
@@ -39,14 +38,29 @@ function alertContents()
 
 function listResults()
 {
+	
 	var results = localStorage.getItem("rawGistData");
 	var presults = JSON.parse(results);
 
+	var table= document.createElement("table");
+	var tableBody = document.createElement("tbody");
+
+
 	for(var i = 0;i < presults.length; i++)
 	{
-		var temp = (presults[i].files.language);
-		console.write(temp);
+		var row = document.createElement("tr");
+
+		//url
+		var cell1 = document.createElement("td");
+		var cellText1 = document.createTextNode(presults[i].url);
+		cell1.appendChild(cellText1);
+		//document.write(i + ":"+ presults[i].url + "<br>");
+		tableBody.appendChild(row);
 	}
+		table.appendChild(tableBody);
+		var mainstruct = document.getElementById("tablestart");
+		mainstruct.appendChild(table);
+
 
 }
 
