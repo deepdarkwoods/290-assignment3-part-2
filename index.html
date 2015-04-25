@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>GitHub Gists Retrieval Demo</title>
-  
+
 </head>
 <body>
 
@@ -11,14 +11,8 @@
 
 <form>
 	<legend>GitHub Search Criteria</legend>
-<div>Pages of Results
-	<select>
-	<option value="1" name="pages">1</option>
-	<option value="2" name="pages">2</option>
-	<option value="3" name="pages">3</option>
-	<option value="4" name="pages">4</option>
-	<option value="5" name="pages">5</option>
-	</select>
+<div>Pages of Results (1-5)
+	<input type="number" id="pagesToDisplay" value="Enter # of Pages to Display">
 </div>
 
 <div>
@@ -29,19 +23,24 @@
 </div>
 
 <div>
-	<input type="button" value="Search Github" id="githubreq">
+	<input type="button" value="Search Github" onclick="fetchData()">
 </div>
 
-<div id="tablestart">Start   </div>
-
-
-
-
-
-
-
 </form>
+
 <script type="text/javascript" src="demo.js"></script>
+<div id="tablestart">Gist List</div>
+<div id="favstart">Fav List</div>
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
