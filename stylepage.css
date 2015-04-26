@@ -1,0 +1,37 @@
+
+
+
+
+* {
+    
+    font-family: Calibri;
+    
+    
+}
+
+#gistd {
+    background-color:#99CCFF;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+   
+}
+
+#favd {
+    
+    background-color:#CCE6FF;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+   
+}
+
+nav {
+    background-color:#F0F0F5;
+    border-style: solid;
+    border-width: 1px;
+    width:40%;
+    height:150px;
+    
+}
+

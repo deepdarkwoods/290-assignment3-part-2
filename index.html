@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html>
+    
 <head>
-  <meta charset="utf-8">
-  <title>GitHub Gists Retrieval Demo</title>
-
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="stylepage.css">    
 </head>
+
 <body>
+    
+    <nav>
+    
+    <div>
+    <label>Pages to Display</label>
+    <select  id="pages2display">    
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    </select>
+    </div>
+    
+    <div>
+    <legend>Select Language</legend>
+    <select id="select-lang" multiple="multiple">   
+    <option value="SQL">SQL</option>
+    <option value="Python">Python</option>
+    <option value="JavaScript">Javascript</option>
+    <option value="JSON">JSON</option>
+    </select>
+    </div>
+    
+    <div>
+    <input type="submit" onclick="searchGist()">
+    </div>
+        
+    
+    </nav>
 
 
-
-<form>
-	<legend>GitHub Search Criteria</legend>
-<div>Pages of Results (1-5)
-	<input type="number" id="pagesToDisplay" value="Enter # of Pages to Display">
-</div>
-
-<div>
-	<input type="checkbox" name="language" value="Python">Python<br>
-	<input type="checkbox" name="language" value="JSCON">JSON<br>
-	<input type="checkbox" name="language" value="JavaScript">JavaScript<br>
-	<input type="checkbox" name="language" value="SQL">SQL<br>
-</div>
-
-<div>
-	<input type="button" value="Search Github" onclick="fetchData()">
-</div>
-
-</form>
-
-<script type="text/javascript" src="demo.js"></script>
-<div id="tablestart">Gist List</div>
-<div id="favstart">Fav List</div>
-
-
-
-
-
-
-
-
-
-
-
+    
+    <div id="gistd">
+        Gist Lists
+    </div>
+    
+    <div id="favd">
+        Favorite Lists
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 </body>
-</html>
+<footer>
+ <script src="demo.js"></script>   
+</footer>
 
+</html>
